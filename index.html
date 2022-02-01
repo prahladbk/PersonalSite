@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- Gfont -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="d6f18dcdfc48ef9c283fa8e68a5c7a9e.png" type="image/x-icon">
+
+    <!-- Link css -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Personal Site</title>
+  </head>
+  <body>
+
+    <!-- Navbar begin -->
+    <div class="na">
+        <div class="logo">
+            <a href="index.html"><img src="d6f18dcdfc48ef9c283fa8e68a5c7a9e.png" alt="Logo" style="width: 10rem;"></a>
+        </div>
+        <div class="say_hello">
+            <button type="button" class="btn btn-outline-primary">Say Hello</button>
+        </div>
+    </div>
+    <!-- Navbar end -->
+
+    <!-- Home part -->
+    <div class="container-fluid fi">
+        <div class="row">
+          <div class="col-sm-12 col-lg-6 hee">
+            <div class="cont">
+                <p>Hi, I'm  <span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
+              </div>
+              <div class="para">
+                  <p>I design and code 
+                    beautifully simple things,
+                    and I love what I do.</p>
+              </div>
+              <div class="exp">
+                  <p class="come">Come visit some of my latest creations</p>
+                  <button class="explore">Explore</button>
+              </div>
+          </div>
+          <div class="col-sm-12 col-lg-6 hee">
+            <img src="main_photo.jpeg" alt="Photo" class="pic">
+          </div>
+        </div>
+      </div>
+      <!-- Home part end -->
+
+      <!-- Meet you section start -->
+      <section class="container-fluid">
+          <h1>Nice to meet you 👋</h1>
+          <br><br>
+          <p class="nice">I am a true believer of “perseverance beats talent” and so I always 
+            look for opportunities that I will be able to achieve. The topics I can
+            talk all day long are tech and finance and my final goal is to build 
+            something integrating the two.</p>
+      </section>
+      <!-- Meet you section end -->
+
+      <!-- Experties section start  -->
+      <div class="expertis">
+            <div class="row">
+              <div class="col-sm-12 col-lg-6 di">
+                <img src="laptop.png" alt="Laptop" class="ima">
+                <h2>Programing</h2>
+                <p class="detail">The unlimited possiblities that this field gives has always astonished me.
+                </p>
+                <p class="lang">Languages I speak:</p>
+                <p class="detail">HTML,CSS,C,Java,
+                    Python,JavaScript</p>
+              </div>
+              <div class="col-sm-12 col-lg-6 di">
+                <img src="financial-profit.png" alt="Finance_profit" class="ima">
+                <h2>Finance</h2>
+                <p class="detail">I am an active swing trader with a 
+                    CAGR of 25% as well as a 
+                    long term investor.
+                </p>
+                <p class="lang">Tools I use:</p>
+                <p class="detail">Tradingview,Upstox,Zerodha</p>
+              </div>
+            </div>
+        </div>
+      </div>
+      <!-- Expertis ends -->
+
+      <!-- Footer -->
+      <footer>
+        <img src="icons8-instagram.svg" alt="insta" class="social">
+        <img src="icons8-github.svg" alt="github" class="social">
+        <img src="icons8-linkedin.svg" alt="linkedin" class="social">
+      </footer>
+    <!-- Footer end -->
+
+
+
+
+
+    <!-- JS for bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script>
+        const typedTextSpan = document.querySelector(".typed-text");
+const cursorSpan = document.querySelector(".cursor");
+
+const textArray = ["Prahlad", "a Developer", "a SwingTrader", "a Freelancer","an Engineer"];
+const typingDelay = 200;
+const erasingDelay = 100;
+const newTextDelay = 2000; // Delay between current and next text
+let textArrayIndex = 0;
+let charIndex = 0;
+
+function type() {
+  if (charIndex < textArray[textArrayIndex].length) {
+    if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+    typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(type, typingDelay);
+  } 
+  else {
+    cursorSpan.classList.remove("typing");
+  	setTimeout(erase, newTextDelay);
+  }
+}
+
+function erase() {
+	if (charIndex > 0) {
+    if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+    typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
+    charIndex--;
+    setTimeout(erase, erasingDelay);
+  } 
+  else {
+    cursorSpan.classList.remove("typing");
+    textArrayIndex++;
+    if(textArrayIndex>=textArray.length) textArrayIndex=0;
+    setTimeout(type, typingDelay + 1100);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() { // On DOM Load initiate the effect
+  if(textArray.length) setTimeout(type, newTextDelay + 250);
+});
+    </script>
+  </body>
+</html>
