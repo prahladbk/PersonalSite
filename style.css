@@ -102,7 +102,7 @@ html,body{
 }
 .pic{
     box-sizing: border-box;
-    width: 50vh;
+    width: 35vh;
     border-radius: 10px;
     display: block;
     margin: 20px auto; 
